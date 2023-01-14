@@ -18,5 +18,6 @@ if uploaded_file:
             
 #After reading the file, you can use the pandas_profiling library to generate a data profiling report. You can use the ProfileReport class to create the report, and then display it using Streamlit's st.write function.
         profile = ProfileReport(data)
-        st.write("Data Profiling Report", profile)
-        st.write("Dataframe",data)
+
+ st.write("Data Profiling Report", profile)
+ st.write("Dataframe",data)
