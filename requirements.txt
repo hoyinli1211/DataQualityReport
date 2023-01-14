@@ -2,4 +2,4 @@ streamlit==0.63.0
 pandas==1.2.3
 pandas_profiling==2.9.0
 numpy==1.23.1
-#jinja2==2.11.2
+jinja2==2.11.2
