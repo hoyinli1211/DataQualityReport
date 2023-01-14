@@ -1,4 +1,4 @@
 streamlit
 pandas
 pandas_profiling
-re
+re==3.11.1
