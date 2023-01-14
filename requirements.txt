@@ -3,4 +3,4 @@ pandas==1.2.3
 pandas_profiling==2.9.0
 numpy==1.23.1
 jinja2==2.11.2
-markupsafe
+markupsafe==1.1.1
