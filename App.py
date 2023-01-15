@@ -7,12 +7,23 @@ import re
 
 def introduction():
     st.subheader("Introduction to Data Profiling")
-    st.markdown("Data quality checking is the process of verifying the completeness, accuracy, consistency, and relevance of data. It is an important step in data preparation and data analysis to ensure that the data is suitable for its intended use.")
-    st.markdown("There are several ways to perform data inspection using Python, including:")
-    st.markdown("- **Manual inspection**: Viewing the data in a spreadsheet or text editor")
-    st.markdown("- **Programmatic inspection**: Using Python libraries such as Pandas, NumPy, and Matplotlib to view and analyze the data")
-    st.markdown("- **Data profiling**: Using libraries such as pandas_profiling, to generate a report that provides an overview of the data including missing values, data types, and statistics.")
+    #st.markdown("Data quality checking is the process of verifying the completeness, accuracy, consistency, and relevance of data. It is an important step in data preparation and data analysis to ensure that the data is suitable for its intended use.")
+    #st.markdown("There are several ways to perform data inspection using Python, including:")
+    #st.markdown("- **Manual inspection**: Viewing the data in a spreadsheet or text editor")
+    #st.markdown("- **Programmatic inspection**: Using Python libraries such as Pandas, NumPy, and Matplotlib to view and analyze the data")
+    #st.markdown("- **Data profiling**: Using libraries such as pandas_profiling, to generate a report that provides an overview of the data including missing values, data types, and statistics.")
 
+    st.markdown("Data profiling is the process of examining the content, structure, and quality of a dataset. It helps to understand the characteristics of the data, identify patterns and anomalies, and to check for data inconsistencies and errors.")
+    st.markdown("There are several key aspects of data profiling, including:")
+    st.markdown("1. **Data Structure**: Examining the data structure includes understanding the data types of each column, the number of columns and rows, and the relationships between tables.")
+    st.markdown("2. **Data Content**: Examining the data content includes understanding the distribution of values, identifying outliers, and examining the completeness of the data.")
+    st.markdown("3. **Data Quality**: Examining the data quality includes identifying missing and duplicate data, identifying data errors, and checking for consistency across columns and tables.")
+    st.markdown("4. **Data Validation**: Validation is the process of checking that the data meets certain criteria, such as data types, ranges, and formats.")
+    st.markdown("5. **Data Distribution**: Distribution analysis is used to check the frequency of different values in the dataset.")
+    st.markdown("6. **Data Correlation**: Correlation analysis is used to check the relationship between different variables in the dataset.")
+    st.markdown("Data profiling can be done using various tools, such as pandas_profiling, DataExplorer, and DataWrangler, and also using Python libraries like pandas, numpy, and matplotlib.")
+    st.markdown("It's important to understand that data profiling is a crucial step in the data preparation process, as it helps to identify issues that need to be addressed before the data can be used for analysis or modeling.")
+    
     st.subheader("How to fill the missing values?")
     st.markdown("When filling missing values in a dataset, it's important to consider the type of data and the distribution of the values.")
     st.markdown("- **Mean**: The mean is the sum of the values divided by the number of values. It's a commonly used measure of central tendency for numerical data. It's a good choice for filling missing values when the data is numerical and is normally distributed. This is because the mean is sensitive to outliers and if the data is not normally distributed, then the mean may not be a good representation of the center of the data.")
