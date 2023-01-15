@@ -31,6 +31,7 @@ st.sidebar.markdown("- Use mode imputation for categorical data")
 
 # Define the main part of the app
 st.title("Data Quality Report")
+tab = st.tabs(["Note","Upload & Generate Report", "Cleansing Recommendation & Export"])
 
 #Multi-page 
 pages = ["Note","Upload File and Generate Report", "Data Cleansing Recommendation"]
