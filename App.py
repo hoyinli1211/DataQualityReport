@@ -6,7 +6,7 @@ from pandas_profiling import ProfileReport
 import re
 
 def introduction():
-    st.subheader("Introduction to Data Quality Checking")
+    st.subheader("Introduction to Data Profiling")
     st.markdown("Data quality checking is the process of verifying the completeness, accuracy, consistency, and relevance of data. It is an important step in data preparation and data analysis to ensure that the data is suitable for its intended use.")
     st.markdown("There are several ways to perform data inspection using Python, including:")
     st.markdown("- **Manual inspection**: Viewing the data in a spreadsheet or text editor")
@@ -30,7 +30,7 @@ st.sidebar.markdown("- Use median imputation for numeric data (integer)")
 st.sidebar.markdown("- Use mode imputation for categorical data")
 
 # Define the main part of the app
-st.title("Data Quality Report")
+st.title("Data Profiling Report")
 tabs = st.tabs(["Note","Upload & Generate Report", "Cleansing Recommendation & Export"])
 
 tab_note = tabs[0]
