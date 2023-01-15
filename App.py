@@ -24,6 +24,10 @@ st.sidebar.markdown("Step 2: Run the Report")
 st.sidebar.markdown("- Click on the 'Run' button to run the data quality check.")
 st.sidebar.markdown("- After running the data quality check, the report will be generated.")
 st.sidebar.markdown("- The report will show the data profile, missing values, and correlation.")
+st.sidebar.markdown("Step 3: Clean the Data")
+st.sidebar.markdown("- Use mean imputation for numeric data (double/float)")
+st.sidebar.markdown("- Use median imputation for numeric data (integer)")
+st.sidebar.markdown("- Use mode imputation for categorical data")
 
 # Define the main part of the app
 st.title("Data Quality Report")
