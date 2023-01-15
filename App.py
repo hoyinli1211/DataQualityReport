@@ -7,12 +7,6 @@ import re
 
 def introduction():
     st.subheader("Introduction to Data Profiling")
-    #st.markdown("Data quality checking is the process of verifying the completeness, accuracy, consistency, and relevance of data. It is an important step in data preparation and data analysis to ensure that the data is suitable for its intended use.")
-    #st.markdown("There are several ways to perform data inspection using Python, including:")
-    #st.markdown("- **Manual inspection**: Viewing the data in a spreadsheet or text editor")
-    #st.markdown("- **Programmatic inspection**: Using Python libraries such as Pandas, NumPy, and Matplotlib to view and analyze the data")
-    #st.markdown("- **Data profiling**: Using libraries such as pandas_profiling, to generate a report that provides an overview of the data including missing values, data types, and statistics.")
-
     st.markdown("Data profiling is the process of examining the content, structure, and quality of a dataset. It helps to understand the characteristics of the data, identify patterns and anomalies, and to check for data inconsistencies and errors.")
     st.markdown("There are several key aspects of data profiling, including:")
     st.markdown("1. **Data Structure**: Examining the data structure includes understanding the data types of each column, the number of columns and rows, and the relationships between tables.")
@@ -23,6 +17,15 @@ def introduction():
     st.markdown("6. **Data Correlation**: Correlation analysis is used to check the relationship between different variables in the dataset.")
     st.markdown("Data profiling can be done using various tools, such as pandas_profiling, DataExplorer, and DataWrangler, and also using Python libraries like pandas, numpy, and matplotlib.")
     st.markdown("It's important to understand that data profiling is a crucial step in the data preparation process, as it helps to identify issues that need to be addressed before the data can be used for analysis or modeling.")
+    
+    st.subheader("pandas_profiling Python package")
+    st.markdown("`pandas_profiling` is a powerful Python library that allows you to quickly generate a comprehensive report on your data. It's built on top of the popular data manipulation library `pandas`, and provides a range of useful features, such as:")
+    st.markdown("1. **Overview report**: The overview report provides a high-level summary of the data, including information on the number of rows, columns, and missing values. It also includes warnings, such as highly correlated variables and large numbers of duplicate observations.")
+    st.markdown("2. **Interactive inspection**: The report allows you to explore the data in more detail, by clicking on the icons next to each variable. This allows you to view the distribution of the data, examine the correlation between variables, and see the top and bottom records for each variable.")
+    st.markdown("3. **Variables types**: The report shows the type of each variable, whether it's categorical, numerical, or boolean, and provides statistics such as the mean, median, mode, and standard deviation.")
+    st.markdown("4. **Missing values**: The report shows the percentage of missing values in each variable, and allows you to quickly identify which variables have a high percentage of missing data.")
+    st.markdown("5. **Customizable**: You can customize the report by passing various parameters, such as setting the maximum number of variables to show in the report, or specifying which variables to exclude.")
+    st.markdown("Overall, `pandas_profiling` is a great tool for quickly gaining insights into your data, and is a valuable addition to any data scientist's toolbox.")
     
     st.subheader("How to fill the missing values?")
     st.markdown("When filling missing values in a dataset, it's important to consider the type of data and the distribution of the values.")
