@@ -25,7 +25,6 @@ if selected_tab == "Generate Report":
     st.sidebar.markdown("- The report will show the data profile, missing values, and correlation.")
 
 # Define the main part of the app
-st.set_page_config(page_title="Data Quality Report", page_icon=":chart_with_upwards_trend:", layout="wide")
 st.title("Data Quality Report")
 
 # Allow the user to upload a file
