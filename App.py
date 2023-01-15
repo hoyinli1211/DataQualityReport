@@ -83,4 +83,10 @@ with tab_cleansingnexport:
 
         st.write("Cleaned data", df_clean)
         st.download_button("Download cleaned data",df_clean.to_csv(index=False), "cleaned_data.csv")
+        
+        if st.button('Run Data Quality Check on the cleaned data'):
+        # Generate the data profiling report
+            profile_clean = ProfileReport(df_clean)
+        # Display the report in the Streamlit app
+            st.components.v1.html(profile_clean.to_html(), width=1000, height=2000, scrolling=True)
                 
