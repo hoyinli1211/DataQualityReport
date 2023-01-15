@@ -29,6 +29,9 @@ st.sidebar.markdown("- The report will show the data profile, missing values, an
 # Define the main part of the app
 st.title("Data Quality Report")
 
+with page_uploadfile:
+    st.write("Hello World")
+
 #Multi-page 
 pages = ["Note","Upload File and Generate Report", "Data Cleansing Recommendation"]
 for page in pages:
