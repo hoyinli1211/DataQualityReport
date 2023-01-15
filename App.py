@@ -21,4 +21,7 @@ if uploaded_file:
     profile = ProfileReport(df)
     
     st.markdown(profile.to_html(), unsafe_allow_html=True)
+   
     st.write("Dataframe",df)
+    
+    st.plt(profile.to_widgets())
