@@ -21,4 +21,4 @@ if uploaded_file:
     profile = ProfileReport(df)
      
     st.write("Dataframe",df)
-    st.markdown(profile.to_html(), unsafe_allow_html=True)
+    st.components.v1.html(profile.to_html(), height=2000, scrolling=True)
