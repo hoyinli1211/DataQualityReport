@@ -61,6 +61,16 @@ with tab_note:
     
 tab_uploadnreport = tabs[1]
 
+def showdata(df):
+    # Display the imported file in data frame
+    st.write("Dataframe",df)
+    
+    if st.button('Run Data Quality Check'):
+        # Generate the data profiling report
+        profile = ProfileReport(df)
+        # Display the report in the Streamlit app
+        st.components.v1.html(profile.to_html(), height=2000, scrolling=True)
+
 with tab_uploadnreport:
 
 # Allow the user to upload a file
@@ -68,21 +78,14 @@ with tab_uploadnreport:
     uploaded_file = st.file_uploader("Upload a file", type=["csv", "xlsx", "xls"])
     if st.button("Import sample dataset"):
         df = pd.read_csv("https://raw.githubusercontent.com/hoyinli1211/DataQualityReport/main/loan_sanction_test.csv")
-    
+        showdata(df)
+        
     if uploaded_file is not None:
         if uploaded_file.name.endswith("csv"):
             df = pd.read_csv(uploaded_file)
         elif uploaded_file.name.endswith("xlsx") or uploaded_file.name.endswith("xls"):
             df = pd.read_excel(uploaded_file)
-
-        # Display the imported file in data frame
-        st.write("Dataframe",df)
-
-    if st.button('Run Data Quality Check'):
-        # Generate the data profiling report
-        profile = ProfileReport(df)
-        # Display the report in the Streamlit app
-        st.components.v1.html(profile.to_html(), height=2000, scrolling=True)
+        showdata(df)
 
 tab_cleansingnexport = tabs[2]
 
