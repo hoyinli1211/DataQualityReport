@@ -6,7 +6,7 @@ from pandas_profiling import ProfileReport
 import re
 
 def introduction():
-    st.title("Introduction to Data Quality Checking")
+    st.subheader("Introduction to Data Quality Checking")
     st.markdown("Data quality checking is the process of verifying the completeness, accuracy, consistency, and relevance of data. It is an important step in data preparation and data analysis to ensure that the data is suitable for its intended use.")
     st.markdown("There are several ways to perform data inspection using Python, including:")
     st.markdown("- **Manual inspection**: Viewing the data in a spreadsheet or text editor")
@@ -33,6 +33,7 @@ pages = ["Note","Upload File and Generate Report"]
 for page in pages:
     if page == "Upload File and Generate Report":
         # Allow the user to upload a file
+        st.subheader("Upload File and Generate Report")
         uploaded_file = st.file_uploader("Upload a file", type=["csv", "xlsx", "xls"])
 
         if uploaded_file is not None:
