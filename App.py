@@ -64,24 +64,23 @@ with tab_uploadnreport:
 tab_cleansingnexport = tabs[2]
 
 with tab_cleansingnexport:
-    if page == "Data Cleansing Recommendation":
-        st.subheader("Data Cleansing Recommendation")
-        missing_value_cleansing = st.checkbox("Fill in missing values?")
+    st.subheader("Data Cleansing Recommendation")
+    missing_value_cleansing = st.checkbox("Fill in missing values?")
 
-        # Fill in missing values based on user input
-        if missing_value_cleansing and uploaded_file is not None:
-            df_clean = df
-            for col in df_clean.columns:
-                if df_clean[col].dtype == 'float':
-                    mean = df_clean[col].mean()
-                    df_clean[col].fillna(mean, inplace=True)
-                elif df_clean[col].dtype == 'int':
-                    median = df_clean[col].median()
-                    df_clean[col].fillna(median, inplace=True)
-                elif df_clean[col].dtype == 'object':
-                    mode = df_clean[col].mode()[0]
-                    df_clean[col].fillna(mode, inplace=True)
-            
-            st.write("Cleaned data", df_clean)
-            st.download_button("Download cleaned data",df_clean.to_csv(index=False), "cleaned_data.csv")
+    # Fill in missing values based on user input
+    if missing_value_cleansing and uploaded_file is not None:
+        df_clean = df
+        for col in df_clean.columns:
+            if df_clean[col].dtype == 'float':
+                mean = df_clean[col].mean()
+                df_clean[col].fillna(mean, inplace=True)
+            elif df_clean[col].dtype == 'int':
+                median = df_clean[col].median()
+                df_clean[col].fillna(median, inplace=True)
+            elif df_clean[col].dtype == 'object':
+                mode = df_clean[col].mode()[0]
+                df_clean[col].fillna(mode, inplace=True)
+
+        st.write("Cleaned data", df_clean)
+        st.download_button("Download cleaned data",df_clean.to_csv(index=False), "cleaned_data.csv")
                 
