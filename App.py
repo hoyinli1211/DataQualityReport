@@ -74,5 +74,5 @@ for page in pages:
                     df_clean[col].fillna(mode, inplace=True)
             
             st.write("Cleaned data", df_clean)
-            
+            st.download_button("Download cleaned data",df_clean.to_csv(index=False), "cleaned_data.csv")
                 
