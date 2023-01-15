@@ -29,28 +29,27 @@ st.sidebar.markdown("- The report will show the data profile, missing values, an
 st.title("Data Quality Report")
 
 #Multi-page 
-pages = ["Upload File and Generate Report", "Note"]
-selected_page = st.selectbox("Select a page", pages, index=1)
+pages = ["Note","Upload File and Generate Report"]
+for page in pages:
+    if page == "Upload File and Generate Report":
+        # Allow the user to upload a file
+        uploaded_file = st.file_uploader("Upload a file", type=["csv", "xlsx", "xls"])
 
-if selected_page == "Upload File and Generate Report":
-    # Allow the user to upload a file
-    uploaded_file = st.file_uploader("Upload a file", type=["csv", "xlsx", "xls"])
+        if uploaded_file is not None:
+            if uploaded_file.name.endswith("csv"):
+                df = pd.read_csv(uploaded_file)
+            elif uploaded_file.name.endswith("xlsx") or uploaded_file.name.endswith("xls"):
+                df = pd.read_excel(uploaded_file)
 
-    if uploaded_file is not None:
-        if uploaded_file.name.endswith("csv"):
-            df = pd.read_csv(uploaded_file)
-        elif uploaded_file.name.endswith("xlsx") or uploaded_file.name.endswith("xls"):
-            df = pd.read_excel(uploaded_file)
+            # Display the imported file in data frame
+            st.write("Dataframe",df)
 
-        # Display the imported file in data frame
-        st.write("Dataframe",df)
+            if st.button('Run Data Quality Check'):
+                # Generate the data profiling report
+                profile = ProfileReport(df)
 
-        if st.button('Run Data Quality Check'):
-            # Generate the data profiling report
-            profile = ProfileReport(df)
+                # Display the report in the Streamlit app
+                st.components.v1.html(profile.to_html(), height=2000, scrolling=True)
 
-            # Display the report in the Streamlit app
-            st.components.v1.html(profile.to_html(), height=2000, scrolling=True)
-
-if selected_page == "Note":
-    introduction()
+    if page == "Note":
+        introduction()
