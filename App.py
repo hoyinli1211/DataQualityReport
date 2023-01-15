@@ -24,4 +24,4 @@ if uploaded_file:
    
     st.write("Dataframe",df)
     
-    st.plt(profile.to_widgets())
+    st.pyplot(profile.to_widgets())
