@@ -10,19 +10,14 @@ import re
 # Create a sidebar on the left side of the app
 st.sidebar.title("Instructions")
 
-# Create a selectbox that allows users to switch between tabs
-tabs = ["Upload File", "Generate Report"]
-selected_tab = st.sidebar.selectbox("Select a tab", tabs)
-
-# Show instructions for the selected tab
-if selected_tab == "Upload File":
-    st.sidebar.markdown("- Click on the 'Upload File' button to select a file from your computer.")
-    st.sidebar.markdown("- Make sure the file is in .csv, .xlsx, .xls format.")
-    
-if selected_tab == "Generate Report":
-    st.sidebar.markdown("- Click on the 'Run' button to run the data quality check.")
-    st.sidebar.markdown("- After running the data quality check, the report will be generated.")
-    st.sidebar.markdown("- The report will show the data profile, missing values, and correlation.")
+# Show instructions on how to use the app
+st.sidebar.markdown("Step 1: Upload File")
+st.sidebar.markdown("- Click on the 'Upload File' button to select a file from your computer.")
+st.sidebar.markdown("- Make sure the file is in .csv, .xlsx, .xls format.")
+st.sidebar.markdown("Step 2: Run the Report")
+st.sidebar.markdown("- Click on the 'Run' button to run the data quality check.")
+st.sidebar.markdown("- After running the data quality check, the report will be generated.")
+st.sidebar.markdown("- The report will show the data profile, missing values, and correlation.")
 
 # Define the main part of the app
 st.title("Data Quality Report")
