@@ -31,35 +31,39 @@ st.sidebar.markdown("- Use mode imputation for categorical data")
 
 # Define the main part of the app
 st.title("Data Quality Report")
-tab = st.tabs(["Note","Upload & Generate Report", "Cleansing Recommendation & Export"])
+tabs = st.tabs(["Note","Upload & Generate Report", "Cleansing Recommendation & Export"])
 
-#Multi-page 
-pages = ["Note","Upload File and Generate Report", "Data Cleansing Recommendation"]
-for page in pages:
-    if page == "Upload File and Generate Report":
-        # Allow the user to upload a file
-        st.subheader("Upload File and Generate Report")
-        uploaded_file = st.file_uploader("Upload a file", type=["csv", "xlsx", "xls"])
+tab_note = tabs[0]
 
-        if uploaded_file is not None:
-            if uploaded_file.name.endswith("csv"):
-                df = pd.read_csv(uploaded_file)
-            elif uploaded_file.name.endswith("xlsx") or uploaded_file.name.endswith("xls"):
-                df = pd.read_excel(uploaded_file)
+with tab_note:
+    introduction()
+    
+tab_uploadnreport = tabs[1]
 
-            # Display the imported file in data frame
-            st.write("Dataframe",df)
+with tab_uploadnreport:
 
-            if st.button('Run Data Quality Check'):
-                # Generate the data profiling report
-                profile = ProfileReport(df)
+# Allow the user to upload a file
+    st.subheader("Upload File and Generate Report")
+    uploaded_file = st.file_uploader("Upload a file", type=["csv", "xlsx", "xls"])
 
-                # Display the report in the Streamlit app
-                st.components.v1.html(profile.to_html(), height=2000, scrolling=True)
+    if uploaded_file is not None:
+        if uploaded_file.name.endswith("csv"):
+            df = pd.read_csv(uploaded_file)
+        elif uploaded_file.name.endswith("xlsx") or uploaded_file.name.endswith("xls"):
+            df = pd.read_excel(uploaded_file)
 
-    if page == "Note":
-        introduction()
-        
+        # Display the imported file in data frame
+        st.write("Dataframe",df)
+
+        if st.button('Run Data Quality Check'):
+        # Generate the data profiling report
+            profile = ProfileReport(df)
+        # Display the report in the Streamlit app
+            st.components.v1.html(profile.to_html(), height=2000, scrolling=True)
+
+tab_cleansingnexport = tabs[2]
+
+with tab_cleansingnexport:
     if page == "Data Cleansing Recommendation":
         st.subheader("Data Cleansing Recommendation")
         missing_value_cleansing = st.checkbox("Fill in missing values?")
