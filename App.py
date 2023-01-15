@@ -18,9 +18,9 @@ selected_tab = st.sidebar.selectbox("Select a tab", tabs)
 if selected_tab == "Upload File":
     st.sidebar.markdown("- Click on the 'Upload File' button to select a file from your computer.")
     st.sidebar.markdown("- Make sure the file is in .csv, .xlsx, .xls format.")
-    st.sidebar.markdown("- Click on the 'Run' button to run the data quality check.")
-
+    
 if selected_tab == "Generate Report":
+    st.sidebar.markdown("- Click on the 'Run' button to run the data quality check.")
     st.sidebar.markdown("- After running the data quality check, the report will be generated.")
     st.sidebar.markdown("- The report will show the data profile, missing values, and correlation.")
 
@@ -35,10 +35,13 @@ if uploaded_file is not None:
         df = pd.read_csv(uploaded_file)
     elif uploaded_file.name.endswith("xlsx") or uploaded_file.name.endswith("xls"):
         df = pd.read_excel(uploaded_file)
-
-    # Generate the data profiling report
-    profile = ProfileReport(df)
-
-    # Display the report in the Streamlit app
+    
+    # Display the imported file in data frame
     st.write("Dataframe",df)
-    st.components.v1.html(profile.to_html(), height=2000, scrolling=True)
+    
+    if st.button('Run Data Quality Check'):
+        # Generate the data profiling report
+        profile = ProfileReport(df)
+
+        # Display the report in the Streamlit app
+        st.components.v1.html(profile.to_html(), height=2000, scrolling=True)
