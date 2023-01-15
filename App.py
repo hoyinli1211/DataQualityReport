@@ -29,7 +29,7 @@ st.sidebar.markdown("- The report will show the data profile, missing values, an
 st.title("Data Quality Report")
 
 #Multi-page 
-pages = ["Note","Upload File and Generate Report"]
+pages = ["Note","Upload File and Generate Report", "Data Cleansing Recommendation"]
 for page in pages:
     if page == "Upload File and Generate Report":
         # Allow the user to upload a file
@@ -54,3 +54,25 @@ for page in pages:
 
     if page == "Note":
         introduction()
+        
+    if page == "Data Cleansing Recommendation":
+        st.subheader("Data Cleansing Recommendation")
+        missing_value_cleansing = st.checkbox("Fill in missing values?")
+
+        # Fill in missing values based on user input
+        if missing_value_cleansing:
+            df_clean = df
+            for col in df_clean.columns:
+                if df_clean[col].dtype == 'float':
+                    mean = df_clean[col].mean()
+                    df_clean[col].fillna(mean, inplace=True)
+                elif df_clean[col].dtype == 'int':
+                    median = df_clean[col].median()
+                    df_clean[col].fillna(median, inplace=True)
+                elif df_clean[col].dtype == 'object':
+                    mode = df_clean[col].mode()[0]
+                    df_clean[col].fillna(mode, inplace=True)
+            
+            st.write("Cleaned data", df_clean)
+            
+                
