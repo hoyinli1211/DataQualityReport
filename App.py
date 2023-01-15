@@ -30,7 +30,7 @@ st.title("Data Quality Report")
 
 #Multi-page 
 pages = ["Upload File and Generate Report", "Note"]
-selected_page = st.selectbox("Select a page", pages, index=2)
+selected_page = st.selectbox("Select a page", pages, index=1)
 
 if selected_page == "Upload File and Generate Report":
     # Allow the user to upload a file
