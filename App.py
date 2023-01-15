@@ -15,7 +15,6 @@ def introduction():
 
 # Create a sidebar on the left side of the app
 st.sidebar.title("Instructions")
-page_uploadfile = st.sidebar.expander("Upload File")
 
 # Show instructions on how to use the app
 st.sidebar.markdown("Step 1: Upload File")
@@ -28,9 +27,6 @@ st.sidebar.markdown("- The report will show the data profile, missing values, an
 
 # Define the main part of the app
 st.title("Data Quality Report")
-
-with page_uploadfile:
-    st.write("Hello World")
 
 #Multi-page 
 pages = ["Note","Upload File and Generate Report", "Data Cleansing Recommendation"]
