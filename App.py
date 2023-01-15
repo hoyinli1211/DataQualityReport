@@ -12,12 +12,13 @@ import re
 uploaded_file = st.file_uploader("Please upload your file", type=["csv", "xlsx", "xls"])
 if uploaded_file:
     if uploaded_file.name.endswith("csv"):
-        data = pd.read_csv(uploaded_file)
+        df = pd.read_csv(uploaded_file)
     elif uploaded_file.name.endswith("xlsx") or uploaded_file.name.endswith("xls"):
-        data = pd.read_excel(uploaded_file)
+        df = pd.read_excel(uploaded_file)
             
 #After reading the file, you can use the pandas_profiling library to generate a data profiling report. You can use the ProfileReport class to create the report, and then display it using Streamlit's st.write function.
-    profile = ProfileReport(data)
+    profile = ProfileReport(df)
+    st.pyplot(profile.to_widgets())
 
-    st.write("Data Profiling Report", profile)
+    #st.write("Data Profiling Report", profile)
     st.write("Dataframe",data)
