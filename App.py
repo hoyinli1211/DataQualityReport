@@ -67,7 +67,7 @@ with tab_uploadnreport:
     st.subheader("Upload File and Generate Report")
     uploaded_file = st.file_uploader("Upload a file", type=["csv", "xlsx", "xls"])
     if st.button("Import sample dataset"):
-        df = pd.read_csv("https://github.com/hoyinli1211/DataQualityReport/blob/main/loan_sanction_test.csv")
+        df = pd.read_csv("https://raw.githubusercontent.com/hoyinli1211/DataQualityReport/main/loan_sanction_test.csv")
     
     if uploaded_file is not None:
         if uploaded_file.name.endswith("csv"):
