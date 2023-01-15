@@ -15,6 +15,7 @@ def introduction():
 
 # Create a sidebar on the left side of the app
 st.sidebar.title("Instructions")
+page_uploadfile = st.sidebar.beta_expander("Upload File")
 
 # Show instructions on how to use the app
 st.sidebar.markdown("Step 1: Upload File")
