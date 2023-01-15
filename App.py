@@ -32,7 +32,7 @@ st.title("Data Quality Report")
 pages = ["Upload File and Generate Report", "Note"]
 selected_page = st.selectbox("Select a page", pages, index=2)
 
-if selected_page == "Upload File and Generate Report"
+if selected_page == "Upload File and Generate Report":
     # Allow the user to upload a file
     uploaded_file = st.file_uploader("Upload a file", type=["csv", "xlsx", "xls"])
 
