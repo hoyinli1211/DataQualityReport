@@ -71,8 +71,7 @@ def showdata(df):
     df=st.session_state.get('df')
     st.write("Dataframe",df)
     
-    if st.button('Run Data Quality Check') and st.session_state['df'] is not null:
-        df=st.session_state.get('df')
+    if st.button('Run Data Quality Check'):
         # Generate the data profiling report
         profile = ProfileReport(df)
         # Display the report in the Streamlit app
