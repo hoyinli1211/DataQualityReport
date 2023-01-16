@@ -92,6 +92,7 @@ with tab_uploadnreport:
     importbutton = st.button("Import sample dataset", on_click=load_sample())
     if importbutton:
         df = load_data("https://raw.githubusercontent.com/hoyinli1211/DataQualityReport/main/loan_sanction_test.csv")
+        st.write(st.session_state.df)
         showdata(df)
         
     if uploaded_file is not None:
