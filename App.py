@@ -83,7 +83,8 @@ with tab_uploadnreport:
 # Allow the user to upload a file
     st.subheader("Upload File and Generate Report")
     uploaded_file = st.file_uploader("Upload a file", type=["csv", "xlsx", "xls"])
-    if st.button("Import sample dataset"):
+    importbutton = st.button("Import sample dataset"):
+    if importbutton:
         df = load_data("https://raw.githubusercontent.com/hoyinli1211/DataQualityReport/main/loan_sanction_test.csv")
         showdata(df)
         
