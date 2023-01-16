@@ -68,6 +68,7 @@ def load_data(link):
 
 def showdata(df):
     # Display the imported file in data frame
+    df=st.session_state['df']
     st.write("Dataframe",df)
     
     if st.button('Run Data Quality Check'):
