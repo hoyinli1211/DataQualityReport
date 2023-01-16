@@ -61,22 +61,22 @@ with tab_note:
     
 tab_uploadnreport = tabs[1]
 
+def load_data(link):
+    df = pd.read_csv(link)
+    st.session_state['df'] = df
+    return df
+
 def showdata(df):
     # Display the imported file in data frame
     st.write("Dataframe",df)
     
     if st.button('Run Data Quality Check'):
-        df=df
+        df=st.session_state['df']
         # Generate the data profiling report
         profile = ProfileReport(df)
         # Display the report in the Streamlit app
         st.components.v1.html(profile.to_html(), height=2000, scrolling=True)
 
-@st.cache
-def load_data(link):
-    df = pd.read_csv(link)
-    return df
-        
 with tab_uploadnreport:
 
 # Allow the user to upload a file
