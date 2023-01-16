@@ -63,13 +63,13 @@ tab_uploadnreport = tabs[1]
 
 def load_data(link):
     df = pd.read_csv(link)
-    st.session_state['df'] = df
+    st.session_state.df = df
     print(st.session_state)
     return df
 
 def showdata(df):
     # Display the imported file in data frame
-    st.session_state.get('df')
+    df=st.session_state.df
     st.write("Dataframe",df)
     
     if st.button('Run Data Quality Check'):
