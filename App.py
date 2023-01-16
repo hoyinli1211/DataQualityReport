@@ -72,13 +72,18 @@ def showdata(df):
         # Display the report in the Streamlit app
         st.components.v1.html(profile.to_html(), height=2000, scrolling=True)
 
+@st.cache
+def load_data(link):
+    df = pd.read_csv(link)
+    return df
+        
 with tab_uploadnreport:
 
 # Allow the user to upload a file
     st.subheader("Upload File and Generate Report")
     uploaded_file = st.file_uploader("Upload a file", type=["csv", "xlsx", "xls"])
     if st.button("Import sample dataset"):
-        df = pd.read_csv("https://raw.githubusercontent.com/hoyinli1211/DataQualityReport/main/loan_sanction_test.csv")
+        df = load_data("https://raw.githubusercontent.com/hoyinli1211/DataQualityReport/main/loan_sanction_test.csv")
         showdata(df)
         
     if uploaded_file is not None:
