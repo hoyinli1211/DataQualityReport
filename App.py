@@ -72,7 +72,6 @@ def showdata(df):
     st.write("Dataframe",df)
     
     if st.button('Run Data Quality Check'):
-        df=st.session_state['df']
         # Generate the data profiling report
         profile = ProfileReport(df)
         # Display the report in the Streamlit app
