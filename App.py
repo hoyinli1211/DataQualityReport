@@ -64,6 +64,7 @@ tab_uploadnreport = tabs[1]
 def load_data(link):
     df = pd.read_csv(link)
     st.session_state['df'] = df
+    print(st.session_state)
     return df
 
 def showdata(df):
